@@ -4,7 +4,9 @@ var pbkdf2 = require('react-native-crypto').pbkdf2Sync
 var createHash = require('react-native-crypto').createHash
 var randomBytes = require('react-native-randombytes').randomBytes
 
-var DEFAULT_WORDLIST = require('./wordlists/en.json')
+var DEFAULT_WORDLIST =  require('./wordlists/en.json')
+var Chinese_Simplified = require('./wordlists/cs.json')
+var Chinese_Traditional = require('./wordlists/ct.json')
 
 function mnemonicToSeed(mnemonic, password) {
   var mnemonicBuffer = new Buffer(mnemonic, 'utf8')
@@ -131,6 +133,8 @@ module.exports = {
   generateMnemonic: generateMnemonic,
   validateMnemonic: validateMnemonic,
   wordlists: {
-    EN: DEFAULT_WORDLIST
+    DEFAULT_WORDLIST: DEFAULT_WORDLIST,
+    Chinese_Simplified:Chinese_Simplified,
+    Chinese_Traditional:Chinese_Traditional
   }
 }
